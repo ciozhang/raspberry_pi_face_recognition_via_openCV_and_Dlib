@@ -1,9 +1,21 @@
-# Face recognition from camera
+# Rasberry Pi Face Recognition via OpenCV and Dlib
 
-Using Dlib to detect and recognize faces from camera (support multi-faces) ;
+Using OpenCV and Dlib to detect and recognize faces from raspberry pi camera
 
-调用摄像头进行人脸识别，支持多张人脸同时识别;
+通过树莓派摄像头进行人脸识别
 
+Flow chart：
+step 0: get faces——>tuen to 128d vectors——>save to csv
+program start: get data from csv and turn to numpy array，motion detecting...
+someone showup——>PIR sensor——>openCV videocapture——>openCV deal with the image——>face recognition via Dlib
+  |——>success——>servo motor control——>open door——>back to motion detecting
+——|
+  |——>fail——>wait 50s——>close openCV window——>back to motion detecting
+
+
+Credit: the face recognition libs is from coneypo
+below is the face recognition steps
+"""
 <br>
 Three steps:
 	
@@ -31,14 +43,5 @@ Python 源码介绍如下:
 	 Face recognition from camera (support multi-faces) / 实时进行人脸识别
   	 Compare the faces captured from camera with the faces you have registered which are saved in "features_all.csv"
   	 将捕获到的人脸数据和之前存的人脸数据进行对比计算欧式距离
-<br>
-For more details, please refer to my blog (in chinese) or contact me by e-mail:
-	
-	> Blog: https://www.cnblogs.com/AdaminXie/p/9010298.html  
-	> Mail: coneypo@foxmail.com
 
-<br>
-Author: coneypo
-<br>
-Thanks for your support.
-
+"""
