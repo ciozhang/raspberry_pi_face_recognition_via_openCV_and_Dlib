@@ -9,7 +9,7 @@ Flow chart：
   - step 0: get faces——>tuen to 128d vectors——>save to csv
   - program start: get data from csv and turn to numpy array，motion detecting...
 
-  - someone showup——>PIR sensor——>openCV videocapture——>openCV dealt image——>face recognition via Dlib
+  - someone showup——>PIR sensor——>openCV videocapture——>openCV dealt image——>face recognition via Dlib  
 &nbsp; &nbsp; &nbsp; &nbsp; |——>success——>servo motor control——>open door——>back to motion detecting  
 ——|  
 &nbsp; &nbsp; &nbsp; &nbsp; |——>fail——>wait 50s——>close openCV window——>back to motion detecting  
