@@ -4,6 +4,7 @@ Using OpenCV and Dlib to detect and recognize faces from raspberry pi camera
 
 通过树莓派摄像头进行人脸识别
 
+中文请参考https://zhuanlan.zhihu.com/p/45979175
 
 Flow chart：
   - step 0: get faces——>tuen to 128d vectors——>save to csv
@@ -14,6 +15,40 @@ Flow chart：
 ——|  
 &nbsp; &nbsp; &nbsp; &nbsp; |——>fail——>wait 50s——>close openCV window——>back to motion detecting  
 
+PIR sensor
+'''
+#!/usr/bin/python
+
+import time
+import RPi.GPIO as GPIO
+
+GPIO_PIR = 18
+
+
+def detectedAndPrint():
+    GPIO.setup(GPIO_PIR, GPIO.IN)
+    print("nothing")
+    while isDetected():
+        time.sleep(0.1)
+        print("PIR sensor detected some stuff")
+
+
+def isDetected():
+    while GPIO.input(GPIO_PIR) == GPIO.LOW:
+        return False
+
+    while GPIO.input(GPIO_PIR) == GPIO.HIGH:
+        return True
+
+
+if __name__ == '__main__':
+    # rpi board gpio or bcm gpio
+    GPIO.setmode(GPIO.BCM)
+
+    # loop method
+    detectedAndPrint()
+
+'''
 
 Credit: the face recognition libs is from [coneypo](https://github.com/coneypo/Dlib_face_recognition_from_camera)
 
